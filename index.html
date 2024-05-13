@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const strArray = []
+
+    class ToDo {
+        constructor(type) {
+            this.type = type;
+        }
+
+        add(task) {
+            if (this.type === typeof task)
+                strArray.push(task)
+            else {
+                return console.log("function awaits string")
+            }
+        }
+
+        delete(index) {
+            if (!isNaN(index) && typeof index !== "string") {
+                if (index >= 0 && index <= strArray.length - 1) {
+                    return strArray.splice(index, 1)
+                } else {
+                    return console.log("IndexError")
+                }
+            } else (
+                console.log("function awaits number")
+            )
+        }
+
+        view() {
+            return console.log(strArray)
+        }
+    }
+
+    const task = new ToDo('string')
+
+    task.add("Email")
+    task.add("Meeting")
+    task.add("Deadline")
+    task.add("Presentation")
+    task.add("Report")
+    task.add("Collaboration")
+    task.add("Project")
+    task.add("Spreadsheet")
+    task.add("Schedule")
+    task.add("Workspace")
+    task.delete("0")
+    task.delete(1)
+    task.delete(5)
+    task.delete(7)
+    task.delete("2")
+    task.view()
+</script>
+</body>
+</html>
