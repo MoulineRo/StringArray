@@ -6,16 +6,16 @@
 </head>
 <body>
 <script>
-    const strArray = []
 
     class ToDo {
+        static strArray = []
         constructor(type) {
             this.type = type;
         }
 
         add(task) {
             if (this.type === typeof task)
-                strArray.push(task)
+                ToDo.strArray.push(task)
             else {
                 return console.log("function awaits string")
             }
@@ -23,8 +23,8 @@
 
         delete(index) {
             if (!isNaN(index) && typeof index !== "string") {
-                if (index >= 0 && index <= strArray.length - 1) {
-                    return strArray.splice(index, 1)
+                if (index >= 0 && index <= ToDo.strArray.length - 1) {
+                    return ToDo.strArray.splice(index, 1)
                 } else {
                     return console.log("IndexError")
                 }
@@ -34,7 +34,7 @@
         }
 
         view() {
-            return console.log(strArray)
+            return console.log(ToDo.strArray)
         }
     }
 
